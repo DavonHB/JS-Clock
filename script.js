@@ -21,13 +21,12 @@ function updateClock() {
         hour = 12;
      }
 
-     if (hour > 11) {
+     if ( hour >= 12 && hour < 24) {
         period = "PM"
      }
 
      if (hour > 12) {
-        // takes military time and subtracts it by 12 giving standard time
-        hour = hour - 12;
+        hour = hour - 12
      }
 
      if (hour < 10) {
@@ -36,6 +35,10 @@ function updateClock() {
 
      if (number < 10) {
         number = "0" + number
+     }
+
+     if (seconds < 10) {
+        seconds = "0" + seconds
      }
 
      let values = [week[name], months[month], number, year, hour, minute, seconds, period]
